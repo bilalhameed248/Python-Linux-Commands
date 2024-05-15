@@ -1,0 +1,181 @@
+Create Virtual Env Commands:
+python3 -m venv my-project-env
+source my-project-env/bin/activate
+
+#*************************************************************************************************
+
+Freezing Libraries from Env:
+pip freeze > requirements.txt
+pip install -r requirements.txt
+cat requirements.txt | xargs -n 1 pip install
+
+#*************************************************************************************************
+
+List all the libraries install in Env
+pip list --local
+
+#*************************************************************************************************
+
+Install DEB package
+sudo dpkg -i /path/to/package.deb
+
+#*************************************************************************************************
+
+Create Screen Commands:
+screen ls
+screen -S screen_name
+screen -r mtbc_forecasting
+Activate Venv and go to specific dir and run python file.
+Next Follow this command to exit. it will run in background.
+Ctrl A ctrl D to detach , it will run on back ground.
+
+#*************************************************************************************************
+
+Kill PORT
+Bellow command will print you PID of process bound on that port.
+fuser 8080/tcp
+And this command will kill that process.
+fuser -k 8080/tcp
+
+#*************************************************************************************************
+
+SSH & SCP Commands
+ssh abc@0.0.0.0
+
+#*************************************************************************************************
+  
+scp abc.txt.docx bilal@0.0.0.0:/home/bilal/
+scp -r abc_folder bilal@0.0.0.0.0:/home/bilal/ 
+pscp -i DS-Private.ppk ABC.zip bilal@0.0.0.0:/home/bilal/
+GCP:  scp -i /home/abc/service/ds_1 env.zip ds@0.0.0.0:~/abc/
+
+#*************************************************************************************************
+
+Search in files
+grep -nr mtbcweb /claim_transcription
+
+#*************************************************************************************************
+
+Git Commands
+you are in ur branch (bilal_dev)
+do your work
+commit your changes and push to your own branch
+git diff HEAD
+git add .
+git commit -m "Bilal changes"
+git branch -M bilal_dev
+git push -u origin bilal_dev
+
+after pushing
+goto testing branch (git checkout feature)
+git testing pull (git pull origin feature)
+again go to you ouwn branch (git checkout feature_MTBCDAT_5087_bilal)
+merge testing with your branch (git merge origin/feature)
+if no confict then simply push to your own branch (git push origin feature_MTBCDAT_5087_bilal)
+if colfict then resolve conflict and add and commit changes then push changes to your own branch
+after that goto azure repo 
+crete new pull request (bilal_dev to testing)
+git config --global --unset http.proxy
+
+#*************************************************************************************************
+
+RASA COMMANDS
+rasa run --enable-api --port 5022
+python manage.py runserver 0.0.0.0:5030
+rasa run --enable-api --port 5031
+rasa run actions
+rasa train --fixed-model-name vfd_bot_model
+python -m rasa interactive --model models/vfd_bot_model.tar.gz --port 5032
+rasa shell --port 5033
+rasa run --enable-api -p 5031 -i 0.0.0.0
+
+#*************************************************************************************************
+
+Delete Ubuntu user
+sudo userdel username
+sudo rm -rf username/
+
+#*************************************************************************************************
+
+List all sudo User:
+getent group sudo
+
+#*************************************************************************************************
+
+Remove User from Sudo Grop
+sudo deluser username sudo
+
+#*************************************************************************************************
+
+Add New User Ubuntu
+sudo useradd -s /bin/bash -d /home/bilal/ -m -G sudo bilal
+sudo passwd username
+
+#*************************************************************************************************
+
+use this to add User:
+sudo adduser bilal
+sudo usermod -a -G tsusers bilal
+sudo usermod -aG sudo bilal
+sudo killall -u bilal
+
+#*************************************************************************************************
+
+Nginx Commands
+sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl restart nginx.service
+sudo systemctl status nginx.service
+sudo systemctl reload nginx
+
+#*************************************************************************************************
+
+symbolic link
+sudo ln -s /etc/nginx/sites-available/myproject /etc/nginx/sites-enabled
+sudo nginx -t
+
+#*************************************************************************************************
+
+Docker Commands
+sudo docker build -t language-lab-img .
+sudo docker images
+sudo docker run -p 8080:8080 language-lab-img
+sudo docker build -t language-lab-img .
+sudo docker images
+sudo docker run -p 8080:8080 language-lab-imgsudo docker build -t language-lab-img .
+sudo docker run --restart unless-stopped --gpus all -d -p 8080:8080 --name lan_lab_container2  --mount type=bind,source="/home/abc/abc/abc/lan_lab",target="/usr/src/app" language-lab-img
+sudo docker run --restart unless-stopped --gpus device=0 --memory=3g -d -p 8085:8080 --name lan_lab_container_gpu1  --mount type=bind,source="/home/abc/abc/abc/lan_lab",target="/usr/src/app" language-lab-img
+
+#*************************************************************************************************
+
+Systemd Comands
+sudo vim /etc/systemd/system/language_lab8000.service
+sudo systemctl daemon-reload
+sudo systemctl start abc.service
+sudo systemctl enable abc.service
+sudo systemctl status abc.service
+sudo systemctl stop abc.service
+sudo journalctl -xe -u abc.service
+sudo journalctl -u abc.service -f
+sudo chmod 755 /instance
+
+#*************************************************************************************************
+
+GPU Monitoring:
+watch -n0.1 nvidia-smi
+
+#*************************************************************************************************
+
+jupyter nbconvert my_input_notebook.ipynb --to notebook --ClearOutputPreprocessor.enabled=True --output my_output_notebook
+conda config --set auto_activate_base false
+
+#*************************************************************************************************
+
+File permission
+chmod -R a+rwx path    (all user all rights)
+sudo chmod -R 777 /var/DirectoryName
+
+#*************************************************************************************************
+
+
+
